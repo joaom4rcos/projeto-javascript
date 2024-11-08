@@ -1,36 +1,16 @@
-//inicio do algoritimo
 const prompt = require('prompt-sync')();
 console.clear();
 
-//variaveis
-var peso;
-var altura;
-var imc;
+console.log(`${"=".repeat(12)} Cálculo de IMC ${"=".repeat(12)}\n`);
 
-//entrada
-console.log(`${"=".repeat(12)} Algoritimo que caucula seu (Imc) indice de massa corporal ${"=".repeat(12)}\n`);
+const peso = parseFloat(prompt("Digite seu peso (Kg): "));
+const altura = parseFloat(prompt("Digite sua altura (M): "));
+const imc = peso / (altura * altura);
 
-peso = prompt("Digite seu peso (Kg): ");
-console.log("");
-altura = prompt("Digite sua altura (M): ");
+console.log(`\nSeu IMC é aproximadamente: ${imc.toFixed(2)}`);
 
-imc = peso / (altura * altura);
-
-//saida
-console.log(`\nSeu Imc é Aproximadamente: ${imc.toFixed(2)}`);
-
-if (imc <= 19) {
-    console.log("Você está abaixo do peso\n");
-}
-if (imc >= 20 && imc <= 24) {
-    console.log("Você está Saudavel\n");
-}
-if (imc >= 25 && imc <= 29) {
-    console.log("Você está sobre peso\n");
-}
-if (imc >= 30 && imc <= 39) {
-    console.log("Você está obeso\n");
-}
-if (imc >= 40) {
-    console.log("Você está obeso mórbido\n");
-}
+if (imc < 20) console.log("Você está abaixo do peso");
+else if (imc <= 24) console.log("Você está saudável");
+else if (imc <= 29) console.log("Você está com sobrepeso");
+else if (imc <= 39) console.log("Você está obeso");
+else console.log("Você está com obesidade mórbida");
