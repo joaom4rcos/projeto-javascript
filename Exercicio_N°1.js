@@ -1,18 +1,19 @@
-//inicio do algoritimo
+// Início do algoritmo de conversão cambial
 const prompt = require('prompt-sync')();
 console.clear();
 
-//variaveis
-const Dolar = 5.50;
-var Real;
-var Cambio;
+// Declaração de variáveis
+const taxaDolar = 5.50;
+let valorReais, valorConvertido;
 
-//entrada
-console.log(`${"=".repeat(12)} Algoritimo que converte real para dolar ${"=".repeat(12)}\n`);
+// Introdução
+console.log(`${"=".repeat(10)} Conversor de Real para Dólar ${"=".repeat(10)}\n`);
 
-Real = prompt("Digite o valor em R$: ");
+// Entrada de dados
+valorReais = parseFloat(prompt("Digite o valor em Reais (R$): "));
 
-//saida
-Cambio = Real / Dolar;
+// Processamento da conversão
+valorConvertido = valorReais / taxaDolar;
 
-console.log(`\nO valor: R$${Real}, Convertido para dolar é aproximadamente igual a: US$${Cambio.toFixed(2)}`);
+// Saída formatada
+console.log(`\nO valor R$${valorReais.toFixed(2)} convertido para dólar é aproximadamente: US$${valorConvertido.toFixed(2)}`);
