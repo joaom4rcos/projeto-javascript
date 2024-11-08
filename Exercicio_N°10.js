@@ -1,27 +1,35 @@
-// Início do algoritmo para calcular a idade em dias
+//inicio do algoritimo
 const prompt = require('prompt-sync')();
 console.clear();
 
-// Variáveis
-const dataAtual = new Date();
-const anoAtual = dataAtual.getFullYear();
-let idadeEmDias = 0;
-let anoNascimento, mesNascimento, diaNascimento;
-let idadeAnos, idadeMeses, idadeDias;
+//variaveis
+const time = new Date()
+const ano = time.getFullYear();
+var idadeEmDias;
+var AnoNascimento;
+var mesNascimento = 0;
+var idade = [];
+var Data;
 
-// Entrada de dados
-console.log(`${"=".repeat(12)} Algoritmo que exibe sua idade em dias ${"=".repeat(12)}\n`);
-console.log("Digite sua data de nascimento no formato 'dd-mm-aaaa' (por exemplo: 01-01-2000)\n");
+//entrada
+console.log(${"=".repeat(12)} Algoritimo que exibe sua idade em dias ${"=".repeat(12)}\n);
 
-const dataNascimento = prompt("Data de Nascimento: ");
-const [dia, mes, ano] = dataNascimento.split("-").map(Number);
+console.log("Digite sua data de nascimento com dia, mês e ano separados por '-' deste jeito: 00-00-0000\n");
 
-// Cálculos para idade
-idadeAnos = anoAtual - ano;
-mesNascimento = 12 - mes;
-diaNascimento = dia;
+Data = prompt("Data de Nascimento: ");
+Data = Number((Data.split("-").reverse().join("")))
 
-// Calculo total de idade em dias
-idadeEmDias = (idadeAnos * 365.25) + (mesNascimento * 30) + diaNascimento;
+//saida
+idade[0] = Number(String(Data).substring(0, 4));
+idade[1] = Number(String(Data).substring(4, 6));
+idade[2] = Number(String(Data).substring(6));
 
-console.log(`\nSua idade aproximada em dias é: ${idadeEmDias.toFixed(0)} dias`);
+AnoNascimento = ano - idade[0];
+
+for (i = idade[1]; i < 12; i++) {
+    mesNascimento++;
+}
+
+idadeEmDias = (AnoNascimento * 365.5) + (mesNascimento * 12) + idade[2];
+
+console.log(\nSua idade expressa em dias é aproximadamente: ${idadeEmDias.toFixed(0)} dias);
